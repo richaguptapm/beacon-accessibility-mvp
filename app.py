@@ -13,7 +13,7 @@ else:
     st.error("API Key missing in secrets!")
     st.stop()
 
-# Use the 'gemini-pro' model (most reliable for text tasks)
+# Use the 'gemini-2.5-flash' model (most reliable for text tasks)
 model = genai.GenerativeModel('gemini-2.5-flash')
 
 url = st.text_input("Enter the URL:")
