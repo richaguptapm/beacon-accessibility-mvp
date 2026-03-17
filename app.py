@@ -1,12 +1,19 @@
 import streamlit as st
 import google.generativeai as genai
-import os
 
-# Set your API Key here. 
-# In a professional product, we hide this. For your MVP, paste it directly:
-genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
+st.title("beacon: Universal Inclusion Layer")
 
-model = genai.GenerativeModel('gemini-pro')
+# Debugging: Check if the key exists without showing it
+if "GOOGLE_API_KEY" in st.secrets:
+    st.success("Secrets loaded successfully!")
+    api_key = st.secrets["GOOGLE_API_KEY"]
+else:
+    st.error("Error: GOOGLE_API_KEY not found in Streamlit Secrets. Check your settings!")
+    st.stop()
+
+# Configure the AI
+genai.configure(api_key=api_key)
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 st.title("beacon: Universal Inclusion Layer")
 st.write("Making the web accessible, one URL at a time.")
