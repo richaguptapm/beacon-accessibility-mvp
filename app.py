@@ -14,7 +14,7 @@ else:
     st.stop()
 
 # Use the 'gemini-pro' model (most reliable for text tasks)
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-2.5-flash')
 
 url = st.text_input("Enter the URL:")
 
